@@ -32,7 +32,6 @@ const EdmontonMap = () => {
         center={mapCenter}
         zoom={10}
         style={mapStyle}
-        bounds={bound}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
