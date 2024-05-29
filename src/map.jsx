@@ -1,5 +1,5 @@
 import { MapContainer, GeoJSON, TileLayer, ScaleControl } from "react-leaflet";
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useRef } from "react";
 import "leaflet/dist/leaflet.css";
 import Alberta from "./edmonton.json";
 import { getColor, layersUtils, getCenterOfGeoJson } from "./mapUtils";
@@ -9,14 +9,12 @@ const EdmontonMap = () => {
   const mapStyle = { height: "100vh", width: "100vw" };
   const [geoJsonId, setGeoJsonId] = useState("edmonton_c");
   const geoJson = Alberta.Objects[geoJsonId];
-  const [bound, setBound] = useState();
   var mapRef = useRef(null);
   var geoJsonRef = useRef(null);
   const mapCenter = getCenterOfGeoJson(geoJson);
   const onDrillDown = (e) => {
     const featureId = e.target.feature.id;
     if (!Alberta.Objects[featureId]) return;
-    console.log(featureId);
 
     // console.log(e.target.fretureId);
     setGeoJsonId(featureId);
